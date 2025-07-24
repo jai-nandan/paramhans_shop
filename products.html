@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products | Shri Param Hans Electrical</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+
+         .navbar {
+            background-color: #002147;
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: bold;
+        }
+
+        .navbar-brand img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px;
+        }
+        .product-card {
+            background: white;
+            width: 200px;
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+        .product-card img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+        .product-card button {
+            background: #002147;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .product-card button:hover {
+            background: #004080;
+        }
+
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+        #modal {
+            display: none;
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #000;
+            z-index: 1000;
+            max-width: 400px;
+            text-align: center;
+        }
+        #modal button {
+            margin-top: 10px;
+        }
+        #k3 {
+            color: red;
+            text-align: center;
+            text-shadow: 2px 2px yellow;
+            text-transform: uppercase;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="images/logo.png" alt="Logo">
+            Shri Param Hans Electrical
+        </a>
+        <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon text-white"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                 <li class="nav-item"><a  class="nav-link" href="owner.html">Owner</a></li>
+                <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="companies.html">Companies</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+                <li class="nav-item"><a  class="nav-link"href="services.html">Services</a></li>
+                  <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="content">
+    <h1 id="k3">Our Products</h1>
+    <div class="product-grid">
+        <!-- Previous Products -->
+        <div class="product-card"><img src="images/fan.png" alt="Fans"><p>Ceiling & Exhaust Fans</p><button onclick="showModal('Ceiling & Exhaust Fans','We offer a variety of ceiling and exhaust fans for home, office, and industrial use from trusted brands.')">Read More</button></div>
+        <div class="product-card"><img src="images/press.png" alt="Electric Iron"><p>Electric Irons</p><button onclick="showModal('Electric Irons','High-performance electric irons with durable build and energy efficiency from leading brands.')">Read More</button></div>
+        <div class="product-card"><img src="images/switch.png" alt="Switches & Sockets"><p>Switches & Sockets</p><button onclick="showModal('Switches & Sockets','Wide range of stylish and safe switches, sockets, and modular accessories.')">Read More</button></div>
+        <div class="product-card"><img src="images/wire.png" alt="Wires & Cables"><p>Wires & Cables</p><button onclick="showModal('Wires & Cables','High-quality wires and cables for residential, commercial, and industrial installations.')">Read More</button></div>
+        <div class="product-card"><img src="images/Geyser.png" alt="Water Geysers"><p>Water Geysers</p><button onclick="showModal('Water Geysers','Energy-efficient water geysers with advanced safety features and various capacities.')">Read More</button></div>
+        <div class="product-card"><img src="images/Mcb.png" alt="MCB & Switchgear"><p>MCB & Switchgear</p><button onclick="showModal('MCB & Switchgear','Reliable MCBs and switchgear for maximum protection and operational safety.')">Read More</button></div>
+        <div class="product-card"><img src="images/led.png" alt="LED Lights & Panels"><p>LED Lights & Panels</p><button onclick="showModal('LED Lights & Panels','Energy-saving LED lights and panels for various applications.')">Read More</button></div>
+        <div class="product-card"><img src="images/boards.png" alt="LED Display Boards"><p>LED Display Boards</p><button onclick="showModal('LED Display Boards','Custom-designed LED display boards for shops, events, and advertising.')">Read More</button></div>
+        <div class="product-card"><img src="images/diwali.png" alt="Diwali Decorative Lights"><p>Diwali Decorative Lights</p><button onclick="showModal('Diwali Decorative Lights','Beautiful decorative lighting for Diwali and other festive celebrations.')">Read More</button></div>
+        <div class="product-card"><img src="images/neon.webp" alt="Neon Boards"><p>Neon Boards</p><button onclick="showModal('Neon Boards','Attractive neon signage boards for commercial and decorative use.')">Read More</button></div>
+
+        <!-- New Added Products -->
+        <div class="product-card"><img src="images/exaust.png" alt="Exhaust Fans"><p>Exhaust Fans</p><button onclick="showModal('Exhaust Fans','High-performance exhaust fans for ventilation.')">Read More</button></div>
+        <div class="product-card"><img src="images/socket.avif" alt="Sockets"><p>Sockets</p><button onclick="showModal('Sockets','Durable sockets for safe use.')">Read More</button></div>
+        <div class="product-card"><img src="images/mixxi.png" alt="Mixi"><p>Mixi</p><button onclick="showModal('Mixi','Top-quality mixers and grinders.')">Read More</button></div>
+        <div class="product-card"><img src="images/heater.png" alt="Room Heater"><p>Room Heaters</p><button onclick="showModal('Room Heaters','Energy-efficient room heaters.')">Read More</button></div>
+        <div class="product-card"><img src="images/pannel.webp" alt="Panels"><p>Panels</p><button onclick="showModal('Panels','High-quality panels for installations.')">Read More</button></div>
+        <div class="product-card"><img src="images/tube.webp" alt="Tube Lights"><p>Tube Lights</p><button onclick="showModal('Tube Lights','LED and traditional tube lights.')">Read More</button></div>
+        <div class="product-card"><img src="images/holders.png" alt="Holders"><p>Holders</p><button onclick="showModal('Holders','Durable lamp holders.')">Read More</button></div>
+        <div class="product-card"><img src="images/bearing.png" alt="Bearings"><p>Bearings</p><button onclick="showModal('Bearings','High-grade bearings.')">Read More</button></div>
+        <div class="product-card"><img src="images/tools.jpg" alt="Tools"><p>Tools</p><button onclick="showModal('Tools','Electrical hand tools.')">Read More</button></div>
+        <div class="product-card"><img src="images/juicer.webp" alt="Juicer"><p>Juicers</p><button onclick="showModal('Juicers','Compact and powerful juicers.')">Read More</button></div>
+        <div class="product-card"><img src="images/kettle.png" alt="Electric Kettle"><p>Electric Kettle</p><button onclick="showModal('Electric Kettle','Fast boiling kettles.')">Read More</button></div>
+        <div class="product-card"><img src="images/induction.png" alt="Induction"><p>Induction Cooktop</p><button onclick="showModal('Induction Cooktop','Modern induction cooktops.')">Read More</button></div>
+        <div class="product-card"><img src="images/hotrod.png" alt="Hot Rod"><p>Hot Rods</p><button onclick="showModal('Hot Rods','Instant water heating rods.')">Read More</button></div>
+        <div class="product-card"><img src="/shop/images/pipe.webp" alt=" Pipe"><p> Pipe</p><button onclick="showModal('Pipe','Durable lenter pipes.')">Read More</button></div>
+        <div class="product-card"><img src="images/fanbox.webp" alt="Fan Box"><p>Fan Boxes</p><button onclick="showModal('Fan Boxes','Robust fan boxes.')">Read More</button></div>
+        <div class="product-card"><img src="images/conceleaedbox.webp" alt="Concealed Box"><p>Concealed Boxes</p><button onclick="showModal('Concealed Boxes','Heavy-duty concealed boxes.')">Read More</button></div>
+        <div class="product-card"><img src="images/modular.jpg" alt="Deep Box"><p>modular box</p><button onclick="showModal('modular box','A Modular Box is a container or casing installed in walls or on surfaces to house electrical devices like switches, sockets, regulators, and indicators. It supports the modular switch system, which allows interchangeable and customizable fitting of various electrical accessories..')">Read More</button></div>
+        <div class="product-card"><img src="images/bend.webp" alt="Bend"><p>Bends</p><button onclick="showModal('Bends','Flexible conduit bends.')">Read More</button></div>
+        <div class="product-card"><img src="images/conceleaedlight.jpg" alt="Concealed"><p>Concealed Pipes</p><button onclick="showModal('Concealed Pipes','ISI marked concealed light.')">Read More</button></div>
+         <div class="product-card"><img src="images/more.png" alt="Concealed"><p> Many More products</p><button onclick="showModal('Many More','We have more products')">Read More</button></div>
+    </div>
+</div>
+
+<div id="overlay" onclick="closeModal()"></div>
+<div id="modal">
+    <h2 id="modalTitle"></h2>
+    <p id="modalContent"></p>
+    <button onclick="closeModal()">Close</button>
+</div>
+
+<footer>&copy; 2025 Shri Param Hans Electrical & Electronics</footer>
+
+<script>
+function showModal(title, content) {
+    document.getElementById('modalTitle').innerText = title;
+    document.getElementById('modalContent').innerText = content;
+    document.getElementById('modal').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
+}
+function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
