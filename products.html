@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products | Shri Param Hans Electrical</title>
-    <meta name="description" content="Explore our wide range of electrical products at Shri Param Hans Electrical & Electronics, including fans, switches, wires, lights, and more. High-quality products for home, office, and industry.">
+    <meta name="description" content="Explore a wide range of electrical products at Shri Param Hans Electrical & Electronics — fans, switches, lights, wires, MCBs, inverters, and more. High-quality electrical goods for home, office, and industry.">
     <link rel="canonical" href="https://shri-paramhans-electrical-electronics.netlify.app/products.html" />
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -21,49 +21,47 @@
         .product-card button { background: #002147; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; }
         .product-card button:hover { background: #004080; }
         #overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999; }
-        #modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px #000; z-index: 1000; max-width: 400px; text-align: center; }
-        #modal button { margin-top: 10px; }
-        #k3 { color: red; text-align: center; text-shadow: 2px 2px yellow; text-transform: uppercase; font-size: 40px; }
+        #modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px #000; z-index: 1000; max-width: 400px; text-align: center; animation: pop 0.3s ease-in-out; }
+        #modal button { margin-top: 10px; background: #002147; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; }
+        #k3 { color: red; text-align: center; text-shadow: 2px 2px yellow; text-transform: uppercase; font-size: 40px; margin-top: 20px; }
         footer { text-align: center; padding: 15px; background: #002147; color: white; margin-top: 20px; }
+        .navbar-toggler-icon { filter: invert(1); }
+        @keyframes pop {
+            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+        #search { display: block; width: 60%; margin: 20px auto; padding: 10px; border-radius: 5px; border: 2px solid #002147; }
     </style>
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand d-flex align-items-center" href="https://shri-paramhans-electrical-electronics.netlify.app/index.html">
-                <img src="images/logo.png" alt="Logo">
-                Shri Param Hans Electrical
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/logo.png" alt="Logo"> Shri Param Hans Electrical
             </a>
             <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon text-white"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="https://shri-paramhans-electrical-electronics.netlify.app/index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://shri-paramhans-electrical-electronics.netlify.app/owner.html">Owner</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://shri-paramhans-electrical-electronics.netlify.app/products.html">Products</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://shri-paramhans-electrical-electronics.netlify.app/companies.html">Companies</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://shri-paramhans-electrical-electronics.netlify.app/contact.html">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://shri-paramhans-electrical-electronics.netlify.app/reviews.html">Reviews</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://shri-paramhans-electrical-electronics.netlify.app/feedback.html">Feedback</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="owner.html">Owner</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="companies.html">Companies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="content">
-        <h1 id="k3">Our Products</h1>
-        <div class="product-grid">
-            <!-- Example Product -->
-            <div class="product-card">
-                <img src="images/fan.png" alt="Fans">
-                <p>Ceiling & Exhaust Fans</p>
-                <button onclick="showModal('Ceiling & Exhaust Fans','We offer a variety of ceiling and exhaust fans for home, office, and industrial use from trusted brands.')">Read More</button>
-            </div>
-            <!-- Add all other products here following same structure -->
-        </div>
-    </div>
+    <h1 id="k3">Our Electrical Products</h1>
+
+    <input type="text" id="search" placeholder="Search for products...">
+
+    <div class="product-grid" id="productGrid"></div>
 
     <div id="overlay" onclick="closeModal()"></div>
     <div id="modal">
@@ -75,6 +73,39 @@
     <footer>&copy; 2025 Shri Param Hans Electrical & Electronics</footer>
 
     <script>
+        const products = [
+            {name: "Ceiling & Exhaust Fans", img: "images/fan.png", desc: "Ceiling, table, and exhaust fans for home, office, and industrial use."},
+            {name: "Switches & Sockets", img: "images/switch.png", desc: "Modular switches, boards, sockets, regulators and accessories."},
+            {name: "Electrical Wires & Cables", img: "images/wire.png", desc: "ISI-certified copper and aluminum wires, multi-core and flexible cables."},
+            {name: "LED Bulbs & Lights", img: "images/led.png", desc: "Energy-efficient LED bulbs, tube lights, panel lights, and street lights."},
+            {name: "MCBs & RCCBs", img: "images/mcb.png", desc: "High-quality circuit breakers and safety devices for overload protection."},
+            {name: "Inverters & Batteries", img: "images/battery.webp", desc: "Reliable inverters and batteries for uninterrupted power supply."},
+            {name: "Water Heaters & Geysers", img: "images/geyser.png", desc: "Electric water heaters and geysers for domestic and commercial use."},
+            {name: "Extension Boards & Cords", img: "images/extension.png", desc: "Heavy-duty extension cords and spike guards with multiple sockets."},
+            {name: "Motors & Pumps", img: "images/motor.png", desc: "Submersible, monoblock, and centrifugal pumps for water applications."},
+            {name: "Iron, Heater & Appliances", img: "images/hotrod.png", desc: "Electric irons, room heaters, and small electrical home appliances."},
+            {name: "Chokes & Starters", img: "images/electrical-choke-250x250.jpg", desc: "Ballasts, starters, and ignitors for tube lights and industrial fittings."},
+            {name: "Conduits & Pipes", img: "images/pipe.webp", desc: "PVC pipes, bends, and accessories for electrical wiring installations."},
+            {name: "Switchgears & Panels", img: "images/panel.png", desc: "Distribution boards, panels, and switchgears for heavy electrical setups."},
+            {name: "Sensors & Smart Devices", img: "images/sensor.png", desc: "Motion sensors, timers, and smart plugs for automation."},
+            {name: "Door Bells & Buzzers", img: "images/bell.png", desc: "Electric doorbells, buzzers, and calling systems."},
+            {name: "Adapters & Chargers", img: "images/adapter.png", desc: "Universal adapters, mobile chargers, and power supplies."},
+            {name: "Tubelights & Battens", img: "images/tube.webp", desc: "LED tube lights, battens, and fitting accessories."},
+            {name: "Fittings & Holders", img: "images/holders.png", desc: "Lamp holders, fittings, and electrical accessories for all uses."},
+            {name: "Capacitors & Fuses", img: "images/capacitor.png", desc: "Run/start capacitors and fuses for electrical safety and stability."},
+            {name: "MCB Boxes & DBs", img: "images/modular.jpg", desc: "Metal and plastic distribution boxes, MCB boxes, and enclosures."}
+        ];
+
+        const grid = document.getElementById("productGrid");
+        products.forEach(p => {
+            grid.innerHTML += `
+            <div class="product-card">
+                <img src="${p.img}" alt="${p.name}">
+                <p>${p.name}</p>
+                <button onclick="showModal('${p.name}', '${p.desc}')">Read More</button>
+            </div>`;
+        });
+
         function showModal(title, content) {
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('modalContent').innerText = content;
@@ -85,6 +116,14 @@
             document.getElementById('modal').style.display = 'none';
             document.getElementById('overlay').style.display = 'none';
         }
+
+        // Search function
+        document.getElementById('search').addEventListener('input', function() {
+            const q = this.value.toLowerCase();
+            document.querySelectorAll('.product-card').forEach(card => {
+                card.style.display = card.innerText.toLowerCase().includes(q) ? '' : 'none';
+            });
+        });
     </script>
 </body>
 </html>
