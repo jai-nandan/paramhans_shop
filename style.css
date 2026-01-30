@@ -1,0 +1,198 @@
+/* 1. SETUP & THEME VARIABLES */
+@import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Inter:wght@300;400;600;700;900&display=swap');
+
+:root {
+    --glass: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --gold: #FFD700;
+    --gold-deep: #ffa500;
+    --dark-bg: #0a0e14;
+    --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* 2. CORE RESET */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* 3. NAVIGATION & BRANDING */
+.navbar {
+    background: rgba(10, 14, 20, 0.95) !important;
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 0.8rem 0;
+}
+
+/* Shop Name Visibility Fix */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.sph-text {
+    font-family: 'Syncopate', sans-serif;
+    font-size: clamp(0.8rem, 1.8vw, 1.2rem);
+    color: var(--gold) !important;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 1px;
+}
+
+.elec-text {
+    font-size: 0.6rem;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* Navigation Links Visibility */
+.navbar .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1.2px;
+    padding: 0.5rem 1rem !important;
+    transition: var(--transition);
+}
+
+.navbar .nav-link:hover, 
+.navbar .nav-link.active {
+    color: var(--gold) !important;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.main-logo {
+    height: clamp(45px, 8vw, 65px);
+    width: auto;
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.2));
+}
+
+/* 4. HERO SECTION */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(rgba(10, 14, 20, 0.8), rgba(10, 14, 20, 0.8)), 
+                url('images/shop.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+}
+
+.hero-title-giant {
+    font-family: 'Syncopate', sans-serif;
+    font-size: clamp(2.2rem, 10vw, 6rem); 
+    line-height: 1;
+    font-weight: 900;
+    text-transform: uppercase;
+    background: linear-gradient(to bottom, #fff 10%, var(--gold) 60%, var(--gold-deep));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 2rem;
+}
+
+/* 5. GLASS CARDS & GRIDS */
+.glass-contact-card, .wow-card {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: clamp(1.5rem, 5vw, 3rem);
+    transition: var(--transition);
+    height: 100%;
+}
+
+.glass-contact-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-10px);
+    background: rgba(255, 215, 0, 0.03);
+}
+
+/* 6. FORM STYLING */
+.form-control {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--glass-border) !important;
+    color: #fff !important;
+    border-radius: 12px;
+    padding: 14px 20px;
+    margin-bottom: 15px;
+}
+
+.form-control:focus {
+    border-color: var(--gold) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+.btn-glow {
+    background: linear-gradient(45deg, var(--gold), var(--gold-deep));
+    border: none;
+    color: #000 !important;
+    font-weight: 800;
+    padding: 16px 40px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: var(--transition);
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn-glow:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+}
+
+/* 7. CUSTOM CURSOR (DESKTOP) */
+@media (min-width: 992px) {
+    .custom-cursor {
+        width: 12px; height: 12px;
+        background: var(--gold);
+        border-radius: 50%;
+        position: fixed; pointer-events: none;
+        z-index: 10000; transform: translate(-50%, -50%);
+        box-shadow: 0 0 15px var(--gold);
+    }
+    body { cursor: none; }
+    a, button, input, textarea { cursor: none; }
+}
+
+/* 8. MOBILE RESPONSIVENESS */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: #0a0e14;
+        padding: 2rem;
+        border-radius: 20px;
+        margin-top: 15px;
+        border: 1px solid var(--gold);
+    }
+
+    .navbar .nav-link {
+        padding: 12px 0 !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .hero-section {
+        background-attachment: scroll;
+    }
+
+    .hero-title-giant { font-size: 2.8rem; }
+}
