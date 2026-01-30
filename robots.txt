@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://shri-paramhans-electrical-electronics.netlify.app/sitemap.xml
